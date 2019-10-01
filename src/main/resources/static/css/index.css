@@ -1,0 +1,494 @@
+
+body,h3,h4,h5,h6,p{
+    margin: 0;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+input,button{
+    outline: none;
+}
+em{
+    font-style: normal;
+    color: red;
+    font-size: 12px;
+}
+.clearFix{
+    display: block;
+    content:"";
+    clear: both;
+}
+
+.wrap{
+    width: 90%;
+    min-height: 300px;
+    font-size: 14px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 2px 2px #eaeefb;
+    color: #909399;
+
+}
+.head{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
+}
+.head button{
+    padding: 5px 14px;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 22px 10px 0 10px;
+    box-sizing: border-box;
+    color: #909399;
+}
+.head button:hover{
+    color: #409eff;
+}
+.head_show{
+    color: #409eff !important;
+    border-bottom: 2px solid #409eff !important;
+}
+.content{
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.content_list{
+    display: none;
+}
+/*数据源*/
+.add_btn{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+.add_btn button{
+    padding: 5px 14px;
+    border-radius: 4px;
+    color: #fff;
+    background: #409eff;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+.list{
+    width: 100%;
+    height: auto;
+    margin: 40px 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/*弹框*/
+.mask{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.3);
+    display: none;
+}
+.mask_box{
+    width: 70%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    padding: 20px 10px;
+    box-sizing: border-box;
+}
+.close{
+    font-size: 30px;
+    color: #fff;
+    position: absolute;
+    right: 10%;
+    top: 10%;
+}
+.mask_content{
+    width: 100%;
+    height: auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.mask_content div{
+    width: 100%;
+    margin-bottom: 20px;
+}
+.mask_content_info p{
+    width: 47%;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+}
+.mask_content_info span{
+    display: inline-block;
+    vertical-align: middle;
+    text-align: right;
+    width: 20%;
+    padding-right: 10px;
+}
+.mask_content_info input{
+    width: 45%;
+    height: 30px;
+    border: 1px solid #ccc;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+.last_content span{
+    padding-right: 10px;
+}
+.last_content input{
+    width: 40%;
+    padding: 0 5px;
+    height: 30px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+.mask_btn{
+    width: 100%;
+    text-align: right;
+    padding: 10px 40px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+.mask_btn button{
+    padding: 5px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.mask_btn button:nth-of-type(2){
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+.mask_btn button:nth-of-type(1){
+    color: #fff;
+    background-color: #409eff;
+}
+/*规则弹框*/
+.rule_mask_content{
+    width: 100%;
+}
+.rule_mask_content p{
+    width: 47%;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+.rule_mask_content span{
+    display: inline-block;
+    vertical-align: middle;
+    width: 25%;
+    text-align: right;
+    padding-right: 10px;
+}
+.rule_mask_content input{
+    width: 40%;
+    height: 30px;
+    border: 1px solid #ccc;
+}
+.rule_mask_content em{
+    padding-left: 10px;
+}
+
+.rule_mask_sql{
+    width: 100%;
+    height: auto;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+.sql_title{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+}
+.rule_type_left{
+    float: left;
+}
+.rule_type_center{
+    float: left;
+}
+.javaExpress_input{
+    float: left;
+    padding-left: 10px;
+}
+.sqlResult_show{
+    float: left;
+}
+.rule_type_center select{
+    width: 200px;
+    height: 30px;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+}
+.javaExpress_input input{
+    width: 400px;
+    height: 30px;
+    border: 1px solid #ccc;
+    padding: 0 5px;
+    box-sizing: border-box;
+    margin-left: 10px;
+}
+.sqlResult_show{
+    width: 100%;
+    margin-top: 10px;
+    display: none;
+}
+.sqlResult_show select{
+    width: 200px;
+    height: 30px;
+    border: 1px solid #ccc;
+    margin-left: 10px;
+}
+.sqlResult_show input{
+    width: 400px;
+    height: 30px;
+    border: 1px solid #ccc;
+    padding: 0 5px;
+    box-sizing: border-box;
+    margin-left: 10px;
+}
+.mask_select{
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.mask_select span{
+    float: left;
+    padding-right: 10px;
+}
+.mask_select select{
+    width: 20%;
+    height: 30px;
+    float: left;
+}
+.mask_select p{
+    width: 60%;
+    float: left;
+    padding-left: 20px
+}
+.mask_select input{
+    width: 60%;
+    height: 25px;
+    border: 1px solid #ccc;
+}
+.mask_select button{
+    padding: 4px 10px;
+    box-sizing: border-box;
+    border: 1px solid #409eff;
+    background-color: #fff;
+    margin-left: 20px;
+    color: #409eff;
+}
+.select{
+    margin-bottom: 10px;
+}
+.sql_add{
+    width: 100%;
+    margin-top: 20px;
+}
+.sql_add button{
+    padding: 5px 14px;
+    background-color: #409eff;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/*邮箱*/
+.email_info{
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.email_info p{
+    display: inline-block;
+    width:47%;
+    height: 30px;
+    line-height: 30px;
+    margin-bottom: 20px;
+
+}
+.email_info span{
+    width: 15%;
+    display: inline-block;
+    text-align: right;
+    padding-right: 10px;
+}
+.email_info input{
+    width: 50%;
+    height: 30px;
+    border:1px solid #ccc;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+.email_btn{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    padding: 0 240px;
+    box-sizing: border-box;
+}
+.email_btn button{
+    padding: 5px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #409eff;
+    font-size: 16px;
+}
+.mask_title{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+.mask_title h3{
+    font-size: 17px;
+    display: inline-block;
+    color: #999;
+}
+.mask_title span{
+    display: inline-block;
+    padding-left: 10px;
+}
+.data_list table{
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    text-align: center;
+}
+.data_list table td, .data_list table th{
+    border: 1px solid #cad9ea;
+    color: #666;
+    height: 30px;
+}
+
+.data_list table thead th{
+    background-color: #CCE8EB;
+    width: 100px;
+    height: 40px !important;
+}
+
+.data_list table tr:nth-child(odd){
+    background: #fff;
+}
+.data_list table tr:nth-child(even){
+    background: #F5FAFA;
+}
+.data_list_btn a{
+    display: inline-block;
+    margin-right: 5px;
+    color: #666;
+}
+/*规则table*/
+.rule_list table{
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    text-align: center;
+}
+.rule_list table td, .data_list table th{
+    border: 1px solid #cad9ea;
+    color: #666;
+    height: 30px;
+}
+.rule_list table thead th{
+    background-color: #CCE8EB;
+    width: 100px;
+    height: 40px !important;
+}
+
+.rule_list table tr:nth-child(odd){
+    background: #fff;
+}
+.rule_list table tr:nth-child(even){
+    background: #F5FAFA;
+}
+.rule_list_btn a{
+    display: inline-block;
+    margin-right: 5px;
+    color: #666;
+}
+.radio_btn{
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+.radio_btn p{
+    display: inline-block;
+    margin: 0 10px;
+}
+.radio_btn input{
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+/*删除弹框*/
+.del_box{
+    width: 400px;
+    height: 150px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #fff;
+    border-radius: 10px;
+}
+.del_box p{
+    text-align: center;
+    height: 90px;
+    line-height: 100px;
+    font-size: 18px;
+}
+.del_btn{
+    width: 100%;
+    padding: 20px;
+    text-align: right;
+    box-sizing: border-box;
+}
+.del_btn button{
+    padding: 5px 15px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.del_btn button:nth-of-type(1){
+    background-color: #409eff;
+    border: 1px solid #409eff;
+    color: #fff;
+}
+.del_btn button:nth-of-type(2){
+    background-color: #fff;
+    border: 1px solid #ccc;
+}

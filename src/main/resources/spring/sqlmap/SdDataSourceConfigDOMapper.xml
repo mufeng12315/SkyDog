@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mufeng.skydog.dao.SdDataSourceConfigDAO">
+  <resultMap id="BaseResultMap" type="com.mufeng.skydog.dataobject.SdDataSourceConfigDO">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="driver_class" jdbcType="VARCHAR" property="driverClass" />
+    <result column="jdbc_url" jdbcType="VARCHAR" property="jdbcUrl" />
+    <result column="user" jdbcType="VARCHAR" property="user" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="min_pool_size" jdbcType="INTEGER" property="minPoolSize" />
+    <result column="max_pool_size" jdbcType="INTEGER" property="maxPoolSize" />
+    <result column="idle_connection_test_period" jdbcType="INTEGER" property="idleConnectionTestPeriod" />
+    <result column="gmt_created" jdbcType="VARCHAR" property="gmtCreated" />
+    <result column="gmt_modified" jdbcType="VARCHAR" property="gmtModified" />
+    <result column="max_idle_time" jdbcType="INTEGER" property="maxIdleTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id,code,driver_class,jdbc_url,user,password,min_pool_size,max_pool_size,idle_connection_test_period,gmt_created,gmt_modified,max_idle_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sd_data_source_config
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sd_data_source_config
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mufeng.skydog.dataobject.SdDataSourceConfigDO">
+    insert into sd_data_source_config (id,code,driver_class,jdbc_url,user,password,min_pool_size, max_pool_size,idle_connection_test_period,gmt_created,gmt_modified,max_idle_time)
+    values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{driverClass,jdbcType=VARCHAR},
+      #{jdbcUrl,jdbcType=VARCHAR}, #{user,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{minPoolSize,jdbcType=INTEGER}, #{maxPoolSize,jdbcType=INTEGER}, #{idleConnectionTestPeriod,jdbcType=INTEGER}, #{gmtCreated,jdbcType=VARCHAR}, #{gmtModified,jdbcType=VARCHAR},
+      #{maxIdleTime,jdbcType=INTEGER})
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.mufeng.skydog.dataobject.SdDataSourceConfigDO">
+    update sd_data_source_config
+    <set>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="driverClass != null">
+        driver_class = #{driverClass,jdbcType=VARCHAR},
+      </if>
+      <if test="jdbcUrl != null">
+        jdbc_url = #{jdbcUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="user != null">
+        user = #{user,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="minPoolSize != null">
+        min_pool_size = #{minPoolSize,jdbcType=INTEGER},
+      </if>
+      <if test="maxPoolSize != null">
+        max_pool_size = #{maxPoolSize,jdbcType=INTEGER},
+      </if>
+      <if test="maxIdleTime != null">
+        max_idle_time = #{maxIdleTime,jdbcType=INTEGER},
+      </if>
+      <if test="idleConnectionTestPeriod != null">
+        idle_connection_test_period = #{idleConnectionTestPeriod,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreated != null">
+        gmt_created = #{gmtCreated,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectListByDO" parameterType="com.mufeng.skydog.dataobject.SdDataSourceConfigDO" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sd_data_source_config
+    where 1=1
+    <if test="id != null">
+      and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="code != null">
+      and code = #{code,jdbcType=VARCHAR}
+    </if>
+    <if test="driverClass != null">
+      and driver_class = #{driverClass,jdbcType=VARCHAR}
+    </if>
+    <if test="jdbcUrl != null">
+      and jdbc_url = #{jdbcUrl,jdbcType=VARCHAR}
+    </if>
+    <if test="user != null">
+      and user = #{user,jdbcType=VARCHAR}
+    </if>
+    <if test="password != null">
+      and password = #{password,jdbcType=VARCHAR}
+    </if>
+    <if test="minPoolSize != null">
+      and min_pool_size = #{minPoolSize,jdbcType=INTEGER}
+    </if>
+    <if test="maxPoolSize != null">
+      and max_pool_size = #{maxPoolSize,jdbcType=INTEGER}
+    </if>
+    <if test="idleConnectionTestPeriod != null">
+      and idle_connection_test_period = #{idleConnectionTestPeriod,jdbcType=INTEGER}
+    </if>
+    <if test="maxIdleTime != null">
+      and max_idle_time = #{maxIdleTime,jdbcType=INTEGER}
+    </if>
+    <if test="gmtCreated != null">
+      and gmt_created = #{gmtCreated,jdbcType=VARCHAR}
+    </if>
+    <if test="gmtModified != null">
+      and gmt_modified = #{gmtModified,jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>

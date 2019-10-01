@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="./css/index.css"/>
+    <title>Title</title>
+</head>
+<body>
+<div class="wrap">
+    <div class="head">
+        <button class="head_show" type="button">数据源</button>
+        <button type="button">告警规则</button>
+        <button type="button">邮箱发送配置</button>
+    </div>
+    <div class="content">
+        <!-- 数据源 -->
+        <div class="content_list" style="display: block;">
+            <div class="add_btn"><button class="add_data" type="button">添加数据</button></div>
+            <div class="data_list list">
+                <table>
+                    <thead class="data_head">
+                    <tr></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <!-- 规则 -->
+        <div class="content_list">
+            <div class="add_btn"><button class="add_rule" type="button">添加规则</button></div>
+            <div class="rule_list list">
+                <table>
+                    <thead class="rule_head">
+                    <tr></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <!-- 邮箱 -->
+        <div class="content_list">
+            <div class="email_info">
+                <p>
+                    <span>smtpHost:</span>
+                    <input type="text" name="host" autocomplete="off" />
+                    <em class="host_tips"></em>
+                </p>
+                <p>
+                    <span>smtpPort:</span>
+                    <input type="text" name="port" autocomplete="off"/>
+                    <em class="port_tips"></em>
+                </p>
+                <p>
+                    <span>username:</span>
+                    <input type="text" name="username" autocomplete="off"/>
+                    <em class="username_tips"></em>
+                </p>
+                <p>
+                    <span>password:</span>
+                    <input type="password" name="password" autocomplete="off"/>
+                    <em class="e_pass_tips"></em>
+                </p>
+                <p>
+                    <span>mail:</span>
+                    <input type="text" name="mail" autocomplete="off"/>
+                    <em class="e_mail_tips"></em>
+                </p>
+                <p>
+                    <span>timeout:</span>
+                    <input type="text" name="timeout" autocomplete="off"/>
+                    <em></em>
+                </p>
+            </div>
+            <div class="email_btn"><button type="button" value="insert">保存</button></div>
+        </div>
+    </div>
+    <!-- 数据源弹框 -->
+    <div class="mask data_mask">
+        <!-- <div class="close">X</div> -->
+        <div class="mask_box">
+            <div class="mask_title"><h3>数据源配置</h3><span>(以下配置都是必填)</span></div>
+            <form id="dataForm">
+                <div class="mask_content">
+                    <div class="mask_content_info">
+                        <p>
+                            <span>code:</span>
+                            <input name="code" type="text" autocomplete="off" />
+                            <em class="code_tips"></em>
+                        </p>
+                        <p>
+                            <span>driverClass:</span>
+                            <input name="driverClass" type="text" autocomplete="off" />
+                            <em class="driver_tips"></em>
+                        </p>
+                    </div>
+                    <div class="mask_content_info">
+                        <input name="id" type="hidden"/>
+                        <p>
+                            <span>user:</span>
+                            <input name="user" type="text" autocomplete="off" />
+                            <em class="user_tips"></em>
+                        </p>
+                        <p>
+                            <span>password:</span>
+                            <input name="password" type="password" autocomplete="off"/>
+                            <em class="pass_tips"></em>
+                        </p>
+                    </div>
+                    <div class="mask_content_info">
+                        <p>
+                            <span>minPoolSize:</span>
+                            <input name="minPoolSize" type="text" autocomplete="off" oninput="value=value.replace(/[^\d]/g,'')"/>
+                            <em class="min_tips"></em>
+                        </p>
+                        <p>
+                            <span>maxPoolSize:</span>
+                            <input name="maxPoolSize" type="text" autocomplete="off" oninput="value=value.replace(/[^\d]/g,'')" />
+                            <em class="max_tips"></em>
+                        </p>
+                    </div>
+                    <div class="mask_content_info">
+                        <p>
+                            <span>maxIdleTime:</span>
+                            <input name="maxIdleTime" type="text" autocomplete="off" oninput="value=value.replace(/[^\d]/g,'')" />
+                            <em class="time_tips"></em>
+                        </p>
+                        <p>
+                            <span>jdbcUrl:</span>
+                            <input name="jdbcUrl" type="text" autocomplete="off" />
+                            <em class="url_tips"></em>
+                        </p>
+                    </div>
+                    <div class="last_content">
+                        <p>
+                            <span>idleConnectionTestPeriod :</span>
+                            <input name="idleConnectionTestPeriod" type="text" autocomplete="off"/>
+                            <em class="idle_tips"></em>
+                        </p>
+                    </div>
+                </div>
+            </form>
+
+            <div class="mask_btn">
+                <button type="button" class="data_mask_submit" value="">提交</button>
+                <button type="button" class="data_mask_cancel">取消</button>
+            </div>
+        </div>
+    </div>
+    <!-- 规则弹框 -->
+    <div class="mask rule_mask">
+        <!-- <div class="close">X</div> -->
+        <div class="mask_box">
+            <div class="mask_title">
+                <h3>规则配置</h3>
+                <!--<span>(以下配置都是必填)</span>-->
+            </div>
+            <form id="ruleForm">
+                <div class="rule_mask_content">
+                    <p>
+                        <span>ruleCode:</span>
+                        <input name="ruleCode" type="text" />
+                        <em class="ruleCode_tips"></em>
+                    </p>
+                    <p>
+                        <span>ruleName:</span>
+                        <input name="ruleName" type="text" />
+                        <em class="ruleName_tips"></em>
+                    </p>
+                    <p>
+                        <span>cronExpress:</span>
+                        <input name="scheduleExpress" type="text" />
+                        <em class="schedule_tips"></em>
+                    </p>
+                    <p>
+                        <span>receiverMail:</span>
+                        <input name="receiverMail" type="text" />
+                        <em class="mail_tips"></em>
+                    </p>
+                    <p>
+                        <span>receiverMobile:</span>
+                        <input name="receiverMobile" type="text" oninput="value=value.replace(/[^\d]/g,'')" maxlength="11"/>
+                        <em class="mobile_tips"></em>
+                    </p>
+                    <p style="display: block;width: 100%;height: 90px;">
+                        <span style="width: 128px;display: inline-block;vertical-align: top;">ruleExpress:</span>
+                        <textarea style="width: 60%;height: 80px;border: 1px solid #ccc" name="ruleExpress"></textarea>
+                        <em class="text_tips"></em>
+                    </p>
+                </div>
+                <div class="radio_btn">
+                    <div class="sql_title"><h4>是否开启规则</h4></div>
+                    <div>
+                        <p><span>开</span><input name="onOff" value="Y" checked="checked" type="radio"/></p>
+                        <p><span>关</span><input name="onOff" value="N" type="radio"/></p>
+                    </div>
+                </div>
+                <div class="rule_mask_sql">
+                    <div class="sql_title"><h4>数据来源</h4></div>
+                    <div class="mask_select">
+                       <div class="select">
+                            <span>dataSource:</span>
+                            <select name="sqlOption">
+
+                            </select>
+                            <p>
+                                <span>sql:</span>
+                                <input name="sqlContent" type="text" />
+                                <button class="sql_del" type="button">删除</button>
+                                <em class="sql_tips"></em>
+                            </p>
+                            <div class="clearFix"></div>
+                        </div>
+                    </div>
+                    <div class="sql_add"><button type="button">添加</button></div>
+                </div>
+                <div class="rule_mask_sql">
+                    <div class="sql_title"><h4>通知内容</h4></div>
+                    <div class="rule_mask_type">
+                        <div class="rule_type_left"><span>noticeContentType:</span></div>
+                        <div class="rule_type_center">
+                        	<select name="noticeContentType">
+                            	<option value="javaExpress">javaExpress</option>
+                            	<option value="sqlResult">sqlResult</option>
+                        	</select>
+                        </div>
+                        <div class="javaExpress_input">
+                            <span>通知内容:</span>
+                        	<input type="text" name="javaExpressContent"/>
+                        	<em class="javaExpress_tips"></em>
+                        </div>
+                        <div class="clearFix"></div>
+                        <div class="sqlResult_show">
+                            <span>dataSource:</span>
+                        	<select></select>
+                            <span style="padding-left: 10px">sql:</span>
+                        	<input type="text" />
+                        	<em class="sqlResult_tips"></em>
+                        </div>
+                      
+                    </div>
+                </div>
+            </form>
+            <div class="mask_btn">
+                <button type="button" value="" class="rule_mask_submit">提交</button>
+                <button type="button" class="rule_mask_cancel">取消</button>
+            </div>
+        </div>
+    </div>
+    <!-- 删除弹框 -->
+    <div class="mask del_mask">
+        <div class="del_box">
+            <p>确定要删除该数据吗？</p>
+            <div class="del_btn">
+                <button class="sure_btn" type="button">确定</button>
+                <button class="cancel_btn" type="button">取消</button>
+            </div>
+        </div>
+    </div>
+    <!-- 删除弹框 -->
+    <div class="mask del_rule_mask">
+        <div class="del_box">
+            <p>确定要删除该数据吗？</p>
+            <div class="del_btn">
+                <button class="rule_sure_btn" type="button">确定</button>
+                <button class="rule_cancel_btn" type="button">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/data.js"></script>
+<script src="./js/rule.js"></script>
+<script src="./js/email.js"></script>
+<script>
+	var headBtn = document.querySelectorAll('.head button');
+	var list = document.querySelectorAll('.content_list');
+	for(var i=0;i<headBtn.length;i++){
+        headBtn[i].index = i;
+        headBtn[i].onclick = function () {
+            for(var i=0;i<headBtn.length;i++){
+                headBtn[i].classList.remove('head_show');
+                list[i].style.display = 'none';
+			}
+            this.classList.add('head_show');
+            list[this.index].style.display = 'block';
+		}
+	};
+
+</script>
+</body>
+</html>

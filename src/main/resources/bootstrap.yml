@@ -1,0 +1,33 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: skyDog
+
+health:
+  config:
+    enabled: false
+  sleuth:
+    log:
+      json:
+        enabled: false
+      slf4j:
+        enabled: false
+management:
+  health:
+    consul:
+      enabled: false
+    defaults:
+          enabled: false
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  refresh:
+    enabled: false
+ribbon:
+  ConnectTimeout: 30000
+  ReadTimeout: 600000

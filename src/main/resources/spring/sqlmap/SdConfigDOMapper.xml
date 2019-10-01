@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mufeng.skydog.dao.SdConfigDAO">
+  <resultMap id="BaseResultMap" type="com.mufeng.skydog.dataobject.SdConfigDO">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code"/>
+    <result column="config_value" jdbcType="VARCHAR" property="configValue"/>
+    <result column="gmt_created" jdbcType="VARCHAR" property="gmtCreated" />
+    <result column="gmt_modified" jdbcType="VARCHAR" property="gmtModified" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, code, config_value,gmt_created, gmt_modified
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sd_config
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sd_config
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mufeng.skydog.dataobject.SdConfigDO">
+    insert into sd_config (id, code, config_value,gmt_created, gmt_modified)
+    values (#{id,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{configValue,jdbcType=VARCHAR},
+      #{gmtCreated,jdbcType=VARCHAR}, #{gmtModified,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.mufeng.skydog.dataobject.SdConfigDO">
+    update sd_config
+    <set>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="configValue != null">
+        config_value = #{configValue,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null">
+        gmt_created = #{gmtCreated,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectListByDO" parameterType="com.mufeng.skydog.dataobject.SdConfigDO" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sd_config
+    where 1=1
+    <if test="id != null">
+      and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="code != null">
+      and code = #{code,jdbcType=VARCHAR}
+    </if>
+    <if test="configValue != null">
+      and config_value = #{configValue,jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>

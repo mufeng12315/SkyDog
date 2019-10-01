@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mufeng.skydog.dao.SdNoticeRuleDAO">
+  <resultMap id="BaseResultMap" type="com.mufeng.skydog.dataobject.SdNoticeRuleDO">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="rule_code" jdbcType="VARCHAR" property="ruleCode" />
+    <result column="rule_name" jdbcType="VARCHAR" property="ruleName" />
+    <result column="rule_express" jdbcType="VARCHAR" property="ruleExpress" />
+    <result column="schedule_express" jdbcType="VARCHAR" property="scheduleExpress" />
+    <result column="notice_content" jdbcType="VARCHAR" property="noticeContent" />
+    <result column="receiver_mail" jdbcType="VARCHAR" property="receiverMail" />
+    <result column="receiver_mobile" jdbcType="VARCHAR" property="receiverMobile" />
+    <result column="gmt_created" jdbcType="VARCHAR" property="gmtCreated" />
+    <result column="gmt_modified" jdbcType="VARCHAR" property="gmtModified" />
+    <result column="is_enable" jdbcType="CHAR" property="isEnable" />
+    <result column="sql_content" jdbcType="VARCHAR" property="sqlContent" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, rule_code, rule_name, rule_express, schedule_express, notice_content,
+    receiver_mail, receiver_mobile, gmt_created, gmt_modified, is_enable,sql_content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sd_notice_rule
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sd_notice_rule
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.mufeng.skydog.dataobject.SdNoticeRuleDO">
+    insert into sd_notice_rule (id, rule_code, rule_name, 
+      rule_express, schedule_express,
+      notice_content, receiver_mail, receiver_mobile, 
+      gmt_created, gmt_modified, is_enable,sql_content)
+    values (#{id,jdbcType=VARCHAR}, #{ruleCode,jdbcType=VARCHAR}, #{ruleName,jdbcType=VARCHAR},
+      #{ruleExpress,jdbcType=VARCHAR}, #{scheduleExpress,jdbcType=VARCHAR},
+      #{noticeContent,jdbcType=VARCHAR}, #{receiverMail,jdbcType=VARCHAR}, #{receiverMobile,jdbcType=VARCHAR}, 
+      #{gmtCreated,jdbcType=VARCHAR}, #{gmtModified,jdbcType=VARCHAR}, #{isEnable,jdbcType=CHAR},
+    #{sqlContent,jdbcType=VARCHAR})
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.mufeng.skydog.dataobject.SdNoticeRuleDO">
+    update sd_notice_rule
+    <set>
+      <if test="ruleCode != null">
+        rule_code = #{ruleCode,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleName != null">
+        rule_name = #{ruleName,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleExpress != null">
+        rule_express = #{ruleExpress,jdbcType=VARCHAR},
+      </if>
+      <if test="scheduleExpress != null">
+        schedule_express = #{scheduleExpress,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeContent != null">
+        notice_content = #{noticeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverMail != null">
+        receiver_mail = #{receiverMail,jdbcType=VARCHAR},
+      </if>
+      <if test="receiverMobile != null">
+        receiver_mobile = #{receiverMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtCreated != null">
+        gmt_created = #{gmtCreated,jdbcType=VARCHAR},
+      </if>
+      <if test="gmtModified != null">
+        gmt_modified = #{gmtModified,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnable != null">
+        is_enable = #{isEnable,jdbcType=CHAR},
+      </if>
+      <if test="sqlContent != null">
+        sql_content = #{sqlContent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="update" parameterType="com.mufeng.skydog.dataobject.SdNoticeRuleDO">
+    update sd_notice_rule
+    set
+    rule_code = #{ruleCode,jdbcType=VARCHAR},
+    rule_name = #{ruleName,jdbcType=VARCHAR},
+    rule_express = #{ruleExpress,jdbcType=VARCHAR},
+    schedule_express = #{scheduleExpress,jdbcType=VARCHAR},
+    notice_content = #{noticeContent,jdbcType=VARCHAR},
+    receiver_mail = #{receiverMail,jdbcType=VARCHAR},
+    receiver_mobile = #{receiverMobile,jdbcType=VARCHAR},
+    gmt_modified = #{gmtModified,jdbcType=VARCHAR},
+    is_enable = #{isEnable,jdbcType=CHAR},
+    sql_content = #{sqlContent,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectListByDO" parameterType="com.mufeng.skydog.dataobject.SdNoticeRuleDO" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sd_notice_rule
+    where 1=1
+    <if test="id != null">
+      and id = #{id,jdbcType=VARCHAR}
+    </if>
+    <if test="ruleName != null">
+      and rule_name = #{ruleName,jdbcType=VARCHAR}
+    </if>
+    <if test="ruleCode != null">
+      and rule_code = #{ruleCode,jdbcType=VARCHAR}
+    </if>
+    <if test="ruleExpress != null">
+      and rule_express = #{ruleExpress,jdbcType=VARCHAR}
+    </if>
+    <if test="scheduleExpress != null">
+      and schedule_express = #{scheduleExpress,jdbcType=VARCHAR}
+    </if>
+    <if test="noticeContent != null">
+      and notice_content = #{noticeContent,jdbcType=VARCHAR}
+    </if>
+    <if test="receiverMail != null">
+      and receiver_mail = #{receiverMail,jdbcType=VARCHAR}
+    </if>
+    <if test="receiverMobile != null">
+      and receiver_mobile = #{receiverMobile,jdbcType=VARCHAR}
+    </if>
+    <if test="gmtCreated != null">
+      and gmt_created = #{gmtCreated,jdbcType=VARCHAR}
+    </if>
+    <if test="gmtModified != null">
+      and gmt_modified = #{gmtModified,jdbcType=VARCHAR}
+    </if>
+    <if test="isEnable != null">
+      and is_enable = #{isEnable,jdbcType=VARCHAR}
+    </if>
+    <if test="sqlContent != null">
+      and sql_content = #{sqlContent,jdbcType=VARCHAR}
+    </if>
+  </select>
+</mapper>
