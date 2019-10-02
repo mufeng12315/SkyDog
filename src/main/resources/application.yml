@@ -4,7 +4,3 @@ spring:
     serialization-inclusion: non_null
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+08
-
-
-SkyDog:
-  storagePath: jdbc:sqlite:D:\\sts_workspace\\SkyDog\\src\\main\\resources\\db\\skyDog.db
